@@ -1,6 +1,8 @@
-package orrg.example.MeasurementsUnits;
+package orrg.example.Measurements;
 
 import org.example.Measurable.ComparableUnits;
+import org.example.Measurements.Length;
+import org.example.Measurements.Temperature;
 import org.example.MeasurementsUnits.TemperatureUnit;
 import org.junit.jupiter.api.Test;
 
@@ -10,8 +12,8 @@ public class TemperatureTest {
     @Test
     public void compare1Fto1FExpects0()
     {
-        ComparableUnits<TemperatureUnit> temperature1 = new ComparableUnits(1,TemperatureUnit.F);
-        ComparableUnits<TemperatureUnit> temperature2 = new ComparableUnits(1,TemperatureUnit.F);
+        Temperature temperature1 = new Temperature(1,TemperatureUnit.F);
+        Temperature temperature2 = new Temperature(1,TemperatureUnit.F);
         int result = temperature1.compareTo(temperature2);
         assertEquals(0,result);
     }
@@ -19,8 +21,8 @@ public class TemperatureTest {
     @Test
     public void compare41Fto12CExpectsMinus1()
     {
-        ComparableUnits<TemperatureUnit> temperature1 = new ComparableUnits(41, TemperatureUnit.F);
-        ComparableUnits<TemperatureUnit> temperature2 = new ComparableUnits(12,TemperatureUnit.C);
+        Temperature temperature1 = new Temperature(41, TemperatureUnit.F);
+        Temperature temperature2 = new Temperature(12,TemperatureUnit.C);
         int result = temperature1.compareTo(temperature2);
         assertEquals(-1,result);
     }
@@ -28,8 +30,8 @@ public class TemperatureTest {
     @Test
     public void conmpare1Cto1CExpects0()
     {
-        ComparableUnits<TemperatureUnit> temperature1 = new ComparableUnits(1,TemperatureUnit.C);
-        ComparableUnits<TemperatureUnit> temperature2 = new ComparableUnits(1,TemperatureUnit.C);
+        Temperature temperature1 = new Temperature(1,TemperatureUnit.C);
+        Temperature temperature2 = new Temperature(1,TemperatureUnit.C);
         int result = temperature1.compareTo(temperature2);
         assertEquals(0,result);
     }
@@ -37,8 +39,8 @@ public class TemperatureTest {
     @Test
     public void conmpare12Cto41FExpects1()
     {
-        ComparableUnits<TemperatureUnit> temperature1 = new ComparableUnits(12,TemperatureUnit.C);
-        ComparableUnits<TemperatureUnit> temperature2 = new ComparableUnits(50,TemperatureUnit.F);
+        Temperature temperature1 = new Temperature(12,TemperatureUnit.C);
+        Temperature temperature2 = new Temperature(50,TemperatureUnit.F);
         int result = temperature1.compareTo(temperature2);
         assertEquals(1,result);
     }

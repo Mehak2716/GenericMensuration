@@ -2,7 +2,7 @@ package org.example.Measurable;
 
 import org.example.unitConverter.Converter;
 
-public  class ComparableUnits<T extends Converter>  {
+public  abstract class ComparableUnits<T extends Converter>  {
 
     private double value;
     private T unit;
