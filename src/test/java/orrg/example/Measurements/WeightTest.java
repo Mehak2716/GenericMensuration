@@ -69,12 +69,12 @@ public class WeightTest {
     }
 
     @Test
-    public void addWeightOf1GWith2DGToGet12DG()
+    public void addWeightOf1GWith2DGToGet13DG()
     {
         Weight weight1 = new Weight(1.0,WeightUnit.G);
-        Weight weight2 = new Weight(2.0,WeightUnit.DG);
+        Weight weight2 = new Weight(3.0,WeightUnit.DG);
         Addable actualWeight = weight1.add(weight2);
-        Weight expectedWeight = new Weight(12,WeightUnit.DG);
+        Weight expectedWeight = new Weight(13,WeightUnit.DG);
         assertEquals(expectedWeight,actualWeight);
     }
 

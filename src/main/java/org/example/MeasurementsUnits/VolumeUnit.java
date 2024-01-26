@@ -2,49 +2,31 @@ package org.example.MeasurementsUnits;
 
 import org.example.unitConverter.Converter;
 
+import java.util.function.Function;
+
 
 public enum VolumeUnit implements Converter {
-    ML,
-    CL,
-    DL,
-    L,
-    DAL,
-    HL,
-    KL;
+    ML(l->l*0.001,l->l*1000),
+    CL(l->l*0.01,l->l*100),
+    DL(l->l*0.1,l->l*10),
+    L(l->l*1,l->l*1),
+    DAL(l->l*10,l->l*0.1),
+    HL(l->l*100,l->l*0.01),
+    KL(l->l*1000,l->l*0.001);
+
+
+    Function<Double,Double> toBase;
+    Function<Double,Double> fromBase;
+    private VolumeUnit(Function<Double,Double> baseFun,Function<Double,Double> fromBaseFun){
+        this.toBase=baseFun;
+        this.fromBase = fromBaseFun;
+    }
+
 
     @Override
-    public double convert(double value, Enum e)
-    {
-        VolumeUnit convertToUnit = (VolumeUnit) e;
-        int unitToConvertIndex=-1;
-        int convertToUnitIndex=-1;
+    public double convert(double value, Enum e) {
+        double baseValue = this.toBase.apply(value);
+        return ((VolumeUnit) e).fromBase.apply(baseValue);
 
-        for(int i=0;i<VolumeUnit.values().length;i++)
-        {
-            if(this == VolumeUnit.values()[i])
-            {
-                unitToConvertIndex=i;
-            }
-
-            if(convertToUnit == VolumeUnit.values()[i])
-            {
-                convertToUnitIndex=i;
-            }
-
-        }
-
-        if(unitToConvertIndex==-1 || convertToUnitIndex==-1 )
-            throw new IllegalArgumentException("WeightUnit is invalid");
-
-
-        int size = Math.abs(convertToUnitIndex-unitToConvertIndex);
-        double coversionParameter= Math.pow(10,size);
-
-        if(unitToConvertIndex<convertToUnitIndex)
-        {
-            return  value * (1/(double)coversionParameter);
-        }
-
-        return value* (coversionParameter);
     }
 }

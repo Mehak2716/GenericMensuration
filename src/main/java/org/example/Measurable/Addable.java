@@ -32,4 +32,23 @@ public class Addable<T extends Converter> extends ComparableUnits {
         return new Addable(subtractResult, metricToSubtract.unit);
     }
 
+    @Override
+    public String toString() {
+        return "Addable{" + "value=" + value + ", unit=" + unit + '}';
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+
+        if(obj == this)
+            return true;
+
+        if(!(obj instanceof Addable<?>))
+            return false;
+
+        Addable<T> metric = (Addable<T>) obj;
+
+        return this.value == metric.value && this.unit==metric.unit;
+
+    }
 }

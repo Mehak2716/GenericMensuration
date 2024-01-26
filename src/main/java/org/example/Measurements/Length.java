@@ -14,4 +14,9 @@ public class Length extends Addable<LengthUnit> {
         this.value = value;
         this.unit = unit;
     }
+
+    @Override
+    public String toString() {
+        return STR."Length{value=\{value}, unit=\{unit}\{'}'}";
+    }
 }

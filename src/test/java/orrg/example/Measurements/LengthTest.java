@@ -68,7 +68,7 @@ public class LengthTest {
         Length length1 = new Length(1.0, LengthUnit.MM);
         Length length2 = new Length(2.0, LengthUnit.M);
         Addable actualLength =  length1.add(length2);
-        Length expectedLength = new Length(2001, LengthUnit.MM);
+        Length expectedLength = new Length(2.001, LengthUnit.M);
         assertEquals(expectedLength, actualLength);
     }
 
@@ -78,8 +78,8 @@ public class LengthTest {
         Length length1 = new Length(1.0, LengthUnit.M);
         Length length2 = new Length(2.0, LengthUnit.DM);
         Addable  actualLength =  length1.add(length2);
-        Length  expectedLength = new Length(12, LengthUnit.DM);
-        assertEquals(actualLength, expectedLength);
+        Length  expectedLength = new Length(12.0, LengthUnit.DM);
+        assertEquals(expectedLength, actualLength);
     }
 
     @Test

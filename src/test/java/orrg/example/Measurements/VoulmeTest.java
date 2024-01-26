@@ -62,12 +62,12 @@ public class VoulmeTest {
     }
 
     @Test
-    public void addVolumeOf1LWith2DLToGet12DL()
+    public void addVolumeOf1LWith2DLToGet13DL()
     {
         Volume volume1 = new Volume(1.0,VolumeUnit.L);
-        Volume volume2 = new Volume(2.0, VolumeUnit.DL);
+        Volume volume2 = new Volume(3.0, VolumeUnit.DL);
         Addable actualLength = volume1.add(volume2);
-        Volume  expectedLength = new Volume(12, VolumeUnit.DL);
+        Volume  expectedLength = new Volume(13, VolumeUnit.DL);
         assertEquals(actualLength, expectedLength);
     }
 
